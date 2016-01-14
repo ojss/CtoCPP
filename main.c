@@ -6,12 +6,13 @@
 //  Copyright © 2016 Ojas Shirekar. All rights reserved.
 //
 
+// TODO Finish working on printf scanning.
 #include <stdio.h>
 #include <string.h>
 
 
 int main(int argc, const char * argv[]) {
-    char str[100], *rets, new_str[100];
+    char str[100], *rets, *rets_two, new_str[100];
     FILE *fp = fopen("test.dat", "r");
     FILE *wp = fopen("toC.cpp", "w+");
     while (!feof(fp)) {
@@ -41,10 +42,8 @@ int main(int argc, const char * argv[]) {
           printf("2\n");
           fprintf(wp, "%s", "cout<<");
           rets = strtok(NULL, ",");
-          
-          rets = strtok(NULL, ")");
-
-          fprintf(wp, "%s\n", rets);
+          rets = strtok(rets, ")");
+          fprintf(wp, "%s%s\n", rets,";");
           continue;
         }
     }

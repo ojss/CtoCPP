@@ -1,4 +1,4 @@
 #include<iostream>
 int main(){
-cout<<(null)
-cout<< x
+cout<<"hey";
+cout<<"%d";
