@@ -1,2 +1,4 @@
 #include<iostream>
-int main()
+int main(){
+cout<<(null)
+cout<< x

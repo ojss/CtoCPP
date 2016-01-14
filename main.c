@@ -29,11 +29,22 @@ int main(int argc, const char * argv[]) {
           continue;
         }
 
-        // skipping main
+        // skipping main, as in keeping it the same
 
         rets = strtok(str, "(");
         if (strcmp("int main", rets) == 0) {
-          fprintf(wp, "%s%s\n", rets,"()");
+          printf("1\n");
+          fprintf(wp, "%s%s\n", rets,"(){");
+          continue;
+        }
+        else if (strcmp("printf", rets) == 0) {
+          printf("2\n");
+          fprintf(wp, "%s", "cout<<");
+          rets = strtok(NULL, ",");
+          
+          rets = strtok(NULL, ")");
+
+          fprintf(wp, "%s\n", rets);
           continue;
         }
     }
