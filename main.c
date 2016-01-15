@@ -6,9 +6,11 @@
 //  Copyright © 2016 Ojas Shirekar. All rights reserved.
 //
 
+// TODO Finish working on printf scanning.
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "converter_helpers.h"
 
 int main(int argc, const char * argv[]) {
     char str[100], *rets = NULL, new_str[100], *rets_two;
@@ -54,8 +56,18 @@ int main(int argc, const char * argv[]) {
             }
             continue;
         }
+        else if (strcmp("scanf", rets) == 0){
+            printf("3");
+            rets_two = strtok(new_str, "&");
+            rets_two = strtok(NULL, ")");
+
+            fprintf(wp,"%s" ,"cin>>");
+            write_as_is(wp, rets_two);
+            fprintf(wp, "%s\n",";");
+            continue;
+        }
     }
-    printf("%s\n",rets );
+    write_as_is(wp, "}");
     fclose(fp);
     fclose(wp);
     return 0;
