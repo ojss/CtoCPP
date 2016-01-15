@@ -6,7 +6,6 @@
 //  Copyright © 2016 Ojas Shirekar. All rights reserved.
 //
 
-// TODO Finish working on printf scanning.
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
