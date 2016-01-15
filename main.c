@@ -10,7 +10,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 int main(int argc, const char * argv[]) {
     char str[100], *rets, *rets_two, new_str[100];
     FILE *fp = fopen("test.dat", "r");
