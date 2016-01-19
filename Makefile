@@ -18,3 +18,6 @@ converter_helper.o: converter_helper.c converter_helpers.h
 
 clean:
 	rm *o c2cpp toC.cpp
+
+run:
+	./c2cpp

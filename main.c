@@ -28,11 +28,14 @@ int main(int argc, const char * argv[]) {
             if(strcmp("stdio.h", rets) == 0){
                 fprintf(wp, "%s\n", "<iostream>");
             }
+            else{
+              fprintf(wp, "%s%s%s\n","<",rets,">");
+            }
             continue;
         }
 
         rets = strtok(str, ";");
-        if (strcmp("return 0", rests)) {
+        if (strcmp("return 0", rets) == 0) {
           printf("5\n");
           fprintf(wp, "%s%s\n",rets,";");
           continue;
@@ -43,7 +46,8 @@ int main(int argc, const char * argv[]) {
         rets = strtok(str, "(");
         if (strcmp("int main", rets) == 0) {
             printf("1\n");
-            fprintf(wp, "%s%s\n", rets,"(){");
+            rets_two = strtok(NULL, "$");
+            fprintf(wp, "%s%s\n",rets,"(){");
             continue;
         }
         else if (strcmp("printf", rets) == 0) {
@@ -73,11 +77,13 @@ int main(int argc, const char * argv[]) {
             continue;
         }
         else{
-          write_as_is(wp, rets);
+          if (strcmp(" ", new_str)==0) {
+            continue;
+          }
+          write_as_is(wp, new_str);
         }
 
     }
-    write_as_is(wp, "}");
     fclose(fp);
     fclose(wp);
     return 0;
