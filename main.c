@@ -6,7 +6,6 @@
 //  Copyright © 2016 Ojas Shirekar. All rights reserved.
 //
 
-// TODO Finish working on printf scanning.
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -30,6 +29,13 @@ int main(int argc, const char * argv[]) {
                 fprintf(wp, "%s\n", "<iostream>");
             }
             continue;
+        }
+
+        rets = strtok(str, ";");
+        if (strcmp("return 0", rests)) {
+          printf("5\n");
+          fprintf(wp, "%s%s\n",rets,";");
+          continue;
         }
 
         // skipping main, as in keeping it the same
@@ -66,6 +72,10 @@ int main(int argc, const char * argv[]) {
             fprintf(wp, "%s\n",";");
             continue;
         }
+        else{
+          write_as_is(wp, rets);
+        }
+
     }
     write_as_is(wp, "}");
     fclose(fp);
